@@ -11,6 +11,7 @@ plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
 
     id 'application'
+    id 'checkstyle'
 
 }
 
@@ -37,6 +38,14 @@ testing {
 application {
     // Define the main class for the application.
     mainClass = 'hexlet.code.App'
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.required = false
+        html.required = true
+        html.stylesheet resources.text.fromFile('config/xsl/checkstyle-custom.xsl')
+    }
 }
 
 compileJava {
