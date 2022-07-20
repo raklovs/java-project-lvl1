@@ -16,18 +16,18 @@ public class App {
                 System.out.println("Welcome to the Brain Games!");
                 System.out.println("May I have your name?");
                 String name1 = words.nextLine();
-                System.out.println("Hello, " + name1);
+                System.out.println("Hello, " + name1 + "!");
                 break;
             case "2":
                 System.out.println("Welcome to the Brain Games!");
                 System.out.println("May I have your name?");
                 String name2 = words.nextLine();
-                System.out.println("Hello, " + name2);
+                System.out.println("Hello, " + name2 + "!");
                 System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
                 var count = 0;
 
                 for (int i = 0; i < 3; i++) {
-                    var rand = (int) (19 * Math.random());
+                    var rand = (int) (20 * Math.random());
                     System.out.println("Question: " + rand);
                     var answer = words.nextLine();
                     if (rand % 2 == 0 && answer.equalsIgnoreCase("yes")) {
@@ -36,12 +36,15 @@ public class App {
 
                     } else if (rand % 2 != 0 && answer.equalsIgnoreCase("no")) {
                         System.out.println("Correct!");
+                        count += 1;
                     } else {
-                        System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'./nLet's try again, Bill!");
+                        System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
+                        System.out.println("Let's try again, Bill!");
+                        break;
                     }
                 }
                 if (count == 3) {
-                    System.out.println("Congratulations, " + name2);
+                    System.out.println("Congratulations, " + name2 + "!");
                 }
 
                 break;
