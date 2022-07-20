@@ -2,7 +2,7 @@
 .DEFAULT_GOAL := build-run
 
 run-dist:
-	./app/build/install/app/bin/app.bat
+	./build/install/app/bin/app.bat
 
 install:
 	./gradlew clean install
@@ -16,7 +16,8 @@ lint:
 update-deps:
 	./gradlew useLatestVersions
 
-build-run: build run
+build-run:
+	build run
 
 .PHONY: build
 
