@@ -9,6 +9,7 @@ public class Engine {
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
         System.out.println("3 - Calculator");
+        System.out.println("4 - GCD");
         System.out.println("0 - Exit");
         String choice = words.nextLine();
         System.out.println("Your choice: " + choice);
@@ -25,6 +26,9 @@ public class Engine {
                 break;
             case "3":
                 Calculator.calculation();
+                break;
+            case "4":
+                GCD.findGreatestCommonDivisor();
                 break;
         }
 
