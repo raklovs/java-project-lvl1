@@ -2,7 +2,7 @@
 .DEFAULT_GOAL := build-run
 
 run-dist:
-	./build/install/app/bin/app.bat
+	./build/install/app/bin/app
 
 install:
 	./gradlew clean install
