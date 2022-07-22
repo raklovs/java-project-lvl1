@@ -30,6 +30,9 @@ public class Engine {
             case "4":
                 GCD.findGreatestCommonDivisor();
                 break;
+            case "5":
+                Progression.arithmeticProgressionNumbers();
+                break;
         }
 
     }
