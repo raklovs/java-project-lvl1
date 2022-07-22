@@ -12,20 +12,22 @@ public class Even {
         var count = 0;
 
         for (int i = 0; i < 3; i++) {
-            var rand = (int) (17 * Math.random());
-            System.out.println("Question: " + rand);
+            var randomNumber = (int) (17 * Math.random());
+            System.out.println("Question: " + randomNumber);
             var answer = words.nextLine();
-            if (rand % 2 == 0 && answer.equalsIgnoreCase("yes")) {
+            if (randomNumber % 2 == 0 && answer.equalsIgnoreCase("yes")) {
                 System.out.println("Correct!");
                 count += 1;
 
-            } else if (rand % 2 != 0 && answer.equalsIgnoreCase("no")) {
+            } else if (randomNumber % 2 != 0 && answer.equalsIgnoreCase("no")) {
                 System.out.println("Correct!");
                 count += 1;
-            } else if (rand % 2 == 0 && !answer.equals("yes")) {
+
+            } else if (randomNumber % 2 == 0 && !answer.equals("yes")) {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'yes'.");
                 System.out.println("Let's try again, " + getName + "!");
                 break;
+
             } else {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'no'.");
                 System.out.println("Let's try again, " + getName + "!");
