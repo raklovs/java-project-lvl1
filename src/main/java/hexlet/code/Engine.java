@@ -11,6 +11,7 @@ public class Engine {
         System.out.println("3 - Calculator");
         System.out.println("4 - GCD");
         System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         String choice = words.nextLine();
         System.out.println("Your choice: " + choice);
@@ -33,6 +34,9 @@ public class Engine {
                 break;
             case "5":
                 Progression.arithmeticProgressionNumbers();
+                break;
+            case "6":
+                Prime.PrimeNumber();
                 break;
         }
 
