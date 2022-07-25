@@ -30,8 +30,8 @@ public class Calculator {
                     operand = "*";
                     break;
                 case 2:
-                    result = randomNumber1 / randomNumber2;
-                    operand = "/";
+                    result = randomNumber1 - randomNumber2;
+                    operand = "-";
                     break;
             }
             System.out.println("Question: " + randomNumber1 + " " + operand + " " + randomNumber2);
