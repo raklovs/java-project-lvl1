@@ -9,18 +9,23 @@ public class Progression {
 
         Scanner words = new Scanner(System.in);
         Greet.getGreet();
-        String getName = Greet.name;
+        String getName = Greet.getName();
         System.out.println("What number is missing in the progression?");
         var count = 0;
+        final var multiplier1 = 10;
+        final var multiplier2 = 5;
+        final var multiplier3 = 9;
+        final int numberOfQuestions = 3;
 
-        for (var i = 0; i < 3; i++) {
-            var beginNumber = (int) (10 * Math.random() - 1);
-            var stepNumber = (int) (5 * Math.random() + 1);
-            int[] progression = new int[10];
+        for (var i = 0; i < numberOfQuestions; i++) {
+            var beginNumber = (int) (multiplier1 * Math.random() - 1);
+            var stepNumber = (int) (multiplier2 * Math.random() + 1);
+            final var arrayLength = 10;
+            int[] progression = new int[arrayLength];
             String[] arrayOfString = new String[progression.length];
             int rezult = beginNumber;
             String replacement = "..";
-            int randomReplacement = ((int) (9 * Math.random()));
+            int randomReplacement = ((int) (multiplier3 * Math.random()));
             int randomChoice = 0;
 
             for (int j = 0; j < progression.length; j++) {
@@ -48,7 +53,7 @@ public class Progression {
 
         }
 
-        if (count == 3) {
+        if (count == numberOfQuestions) {
             System.out.println("Congratulations, " + getName + "!");
         }
     }
