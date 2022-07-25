@@ -3,16 +3,18 @@ package hexlet.code.games;
 import java.util.Scanner;
 
 public class Even {
-    public static void GuessEvenOrOddNumber() {
+    public static void guessEvenOrOddNumber() {
         Scanner words = new Scanner(System.in);
         Greet.getGreet();
-        String getName = Greet.name;
+        String getName = Greet.getName();
 
         System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
         var count = 0;
+        final var numberOfQuestions = 3;
+        final var multiplier = 17;
 
-        for (int i = 0; i < 3; i++) {
-            var randomNumber = (int) (17 * Math.random());
+        for (int i = 0; i < numberOfQuestions; i++) {
+            var randomNumber = (int) (multiplier * Math.random());
             System.out.println("Question: " + randomNumber);
             var answer = words.nextLine();
             if (randomNumber % 2 == 0 && answer.equalsIgnoreCase("yes")) {
@@ -34,7 +36,7 @@ public class Even {
                 break;
             }
         }
-        if (count == 3) {
+        if (count == numberOfQuestions) {
             System.out.println("Congratulations, " + getName + "!");
         }
     }
