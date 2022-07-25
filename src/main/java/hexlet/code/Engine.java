@@ -1,6 +1,11 @@
 package hexlet.code;
 import java.util.Scanner;
-import hexlet.code.games.*;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Greet;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Calculator;
 
 public class Engine {
     public static void gameManagement() {
@@ -13,7 +18,7 @@ public class Engine {
         System.out.println("5 - Progression");
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
-        String choice = words.nextLine();
+        String choice = (words.nextLine());
         System.out.println("Your choice: " + choice);
 
         switch (choice) {
@@ -24,7 +29,7 @@ public class Engine {
                 Greet.getGreet();
                 break;
             case "2":
-                Even.GuessEvenOrOddNumber();
+                Even.guessEvenOrOddNumber();
                 break;
             case "3":
                 Calculator.calculation();
@@ -36,8 +41,10 @@ public class Engine {
                 Progression.arithmeticProgressionNumbers();
                 break;
             case "6":
-                Prime.PrimeNumber();
+                Prime.primeNumber();
                 break;
+            default:
+                System.out.println("You have entered a number outside the range.");
         }
 
     }
