@@ -7,17 +7,20 @@ public class Calculator {
     public static void calculation() {
         Scanner words = new Scanner(System.in);
         Greet.getGreet();
-        String getName = Greet.name;
+        String getName = Greet.getName();
 
         System.out.println("What is the result of the expression?");
         var count = 0;
         var result = 0;
         var operand = "";
+        final int numberOfQuestions = 3;
+        final int multiplier1 = 17;
+        final int multiplier2 = 3;
 
-        for (int i = 0; i < 3; i++) {
-            var randomNumber1 = (int) (17 * Math.random());
-            var randomNumber2 = (int) (17 * Math.random());
-            var switchNumbers = (int) (3 * Math.random());
+        for (int i = 0; i < numberOfQuestions; i++) {
+            var randomNumber1 = (int) (multiplier1 * Math.random());
+            var randomNumber2 = (int) (multiplier1 * Math.random());
+            var switchNumbers = (int) (multiplier2 * Math.random());
 
 
             switch (switchNumbers) {
@@ -33,6 +36,8 @@ public class Calculator {
                     result = randomNumber1 - randomNumber2;
                     operand = "-";
                     break;
+                default:
+                    System.out.println("Out of range");
             }
             System.out.println("Question: " + randomNumber1 + " " + operand + " " + randomNumber2);
             String choice = words.nextLine();
@@ -48,7 +53,7 @@ public class Calculator {
             }
 
         }
-        if (count == 3) {
+        if (count == numberOfQuestions) {
             System.out.println("Congratulations, " + getName + "!");
         }
 
