@@ -4,24 +4,26 @@ import java.util.Scanner;
 
 public class GCD {
 
-    public static int algorithmGreatestCommonDivisor(int n1, int n2) {
-        if (n2 == 0) {
-            return n1;
+    public static int algorithmGreatestCommonDivisor(int number1, int number2) {
+        if (number2 == 0) {
+            return number1;
         }
-        return algorithmGreatestCommonDivisor(n2, n1 % n2);
+        return algorithmGreatestCommonDivisor(number2, number1 % number2);
     }
 
     public static void findGreatestCommonDivisor() {
         Scanner words = new Scanner(System.in);
         Greet.getGreet();
-        String getName = Greet.name;
+        String getName = Greet.getName();
 
         System.out.println("Find the greatest common divisor of given numbers.");
         var count = 0;
+        final var multiplier = 100;
+        final int numberOfQuestions = 3;
 
-        for (int i = 0; i < 3; i++) {
-            var randomNumber1 = (int) (100 * Math.random());
-            var randomNumber2 = (int) (100 * Math.random());
+        for (int i = 0; i < numberOfQuestions; i++) {
+            var randomNumber1 = (int) (multiplier * Math.random());
+            var randomNumber2 = (int) (multiplier * Math.random());
             var answer = GCD.algorithmGreatestCommonDivisor(randomNumber1, randomNumber2);
 
             System.out.println("Question: " + randomNumber1 + " " + randomNumber2);
@@ -38,7 +40,7 @@ public class GCD {
             }
 
         }
-        if (count == 3) {
+        if (count == numberOfQuestions) {
             System.out.println("Congratulations, " + getName + "!");
         }
 
