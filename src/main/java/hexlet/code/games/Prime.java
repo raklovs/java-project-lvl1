@@ -16,15 +16,17 @@ public class Prime {
         return true;
     }
 
-    public static void PrimeNumber() {
+    public static void primeNumber() {
         Scanner words = new Scanner(System.in);
         Greet.getGreet();
-        String getName = Greet.name;
+        String getName = Greet.getName();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         var count = 0;
+        final var multiplier1 = 10;
+        final int numberOfQuestions = 3;
 
-        for (var i = 0; i < 3; i++) {
-            int randomNumber = (int) (Math.random() * 10) + 1;
+        for (var i = 0; i < numberOfQuestions; i++) {
+            int randomNumber = (int) (Math.random() * multiplier1) + 1;
             System.out.println("Question: " + randomNumber);
             String result = "";
 
@@ -54,7 +56,7 @@ public class Prime {
             }
 
         }
-        if (count == 3) {
+        if (count == numberOfQuestions) {
             System.out.println("Congratulations, " + getName + "!");
         }
     }
