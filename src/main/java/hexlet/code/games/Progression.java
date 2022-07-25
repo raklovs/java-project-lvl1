@@ -33,7 +33,7 @@ public class Progression {
                 }
             }
             String arraysNumbers = Arrays.toString(arrayOfString);
-            System.out.println("Question: " + arraysNumbers);
+            System.out.println("Question: " + arraysNumbers.replaceAll(",", "").replace("[", "").replace("]", ""));
             String choice = words.nextLine();
             System.out.println("Your answer: " + choice);
 
