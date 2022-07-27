@@ -1,23 +1,20 @@
 package hexlet.code.games;
 
 import java.util.Arrays;
-import java.util.Scanner;
+
+import hexlet.code.Engine;
 
 public class Progression {
 
     public static void arithmeticProgressionNumbers() {
 
-        Scanner words = new Scanner(System.in);
         Greet.getGreet();
-        String getName = Greet.getName();
         System.out.println("What number is missing in the progression?");
-        var count = 0;
         final var multiplier1 = 10;
         final var multiplier2 = 5;
         final var multiplier3 = 9;
-        final int numberOfQuestions = 3;
 
-        for (var i = 0; i < numberOfQuestions; i++) {
+        for (var i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
             var beginNumber = (int) (multiplier1 * Math.random() - 1);
             var stepNumber = (int) (multiplier2 * Math.random() + 1);
             final var arrayLength = 10;
@@ -39,22 +36,18 @@ public class Progression {
             }
             String arraysNumbers = Arrays.toString(arrayOfString);
             System.out.println("Question: " + arraysNumbers.replaceAll(",", "").replace("[", "").replace("]", ""));
-            String choice = words.nextLine();
-            System.out.println("Your answer: " + choice);
+            Engine.yourAnswer();
 
-            if (String.valueOf(randomChoice).equals(choice)) {
+            if (String.valueOf(randomChoice).equals(Engine.getAnswer())) {
                 System.out.println("Correct!");
-                count++;
             } else {
-                System.out.println(choice + " is wrong answer ;(. Correct answer was " + randomChoice + ".");
-                System.out.println("Let's try again, " + getName + "!");
+                System.out.println(Engine.getAnswer() + " is wrong answer ;(.");
+                System.out.println("Correct answer was " + randomChoice + ".");
+                System.out.println("Let's try again, " + Greet.getName() + "!");
                 break;
             }
 
         }
-
-        if (count == numberOfQuestions) {
-            System.out.println("Congratulations, " + getName + "!");
-        }
+        Engine.congratulations();
     }
 }
