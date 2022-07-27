@@ -1,43 +1,36 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
+import hexlet.code.Engine;
 
 public class Even {
     public static void guessEvenOrOddNumber() {
-        Scanner words = new Scanner(System.in);
-        Greet.getGreet();
-        String getName = Greet.getName();
 
+        Greet.getGreet();
         System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
-        var count = 0;
-        final var numberOfQuestions = 3;
         final var multiplier = 17;
 
-        for (int i = 0; i < numberOfQuestions; i++) {
+        for (int i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
             var randomNumber = (int) (multiplier * Math.random());
             System.out.println("Question: " + randomNumber);
-            var answer = words.nextLine();
-            if (randomNumber % 2 == 0 && answer.equalsIgnoreCase("yes")) {
-                System.out.println("Correct!");
-                count += 1;
+            Engine.yourAnswer();
 
-            } else if (randomNumber % 2 != 0 && answer.equalsIgnoreCase("no")) {
+            if (randomNumber % 2 == 0 && Engine.getAnswer().equals("yes")) {
                 System.out.println("Correct!");
-                count += 1;
 
-            } else if (randomNumber % 2 == 0 && !answer.equals("yes")) {
-                System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'yes'.");
-                System.out.println("Let's try again, " + getName + "!");
+            } else if (randomNumber % 2 != 0 && Engine.getAnswer().equals("no")) {
+                System.out.println("Correct!");
+
+            } else if (randomNumber % 2 == 0 && !Engine.getAnswer().equals("no")) {
+                System.out.println("'" + Engine.getAnswer() + "'" + " is wrong answer ;(. Correct answer was 'yes'.");
+                System.out.println("Let's try again, " + Greet.getName() + "!");
                 break;
 
             } else {
-                System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'no'.");
-                System.out.println("Let's try again, " + getName + "!");
+                System.out.println("'" + Engine.getAnswer() + "'" + " is wrong answer ;(. Correct answer was 'no'.");
+                System.out.println("Let's try again, " + Greet.getName() + "!");
                 break;
             }
         }
-        if (count == numberOfQuestions) {
-            System.out.println("Congratulations, " + getName + "!");
-        }
+        Engine.congratulations();
     }
 }
