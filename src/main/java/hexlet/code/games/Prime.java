@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
+import hexlet.code.Engine;
 
 public class Prime {
 
@@ -17,23 +17,18 @@ public class Prime {
     }
 
     public static void primeNumber() {
-        Scanner words = new Scanner(System.in);
-        Greet.getGreet();
-        String getName = Greet.getName();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        var count = 0;
-        final var multiplier1 = 10;
-        final int numberOfQuestions = 3;
 
-        for (var i = 0; i < numberOfQuestions; i++) {
-            int randomNumber = (int) (Math.random() * multiplier1) + 1;
+        Greet.getGreet();
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        final var multiplier = 10;
+        String result;
+
+        for (var i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
+            int randomNumber = (int) (Math.random() * multiplier) + 1;
             System.out.println("Question: " + randomNumber);
-            String result = "";
 
             boolean isPrime = isPrime(randomNumber);
-            Scanner answerScan = new Scanner(System.in);
-            String answer = answerScan.nextLine();
-            System.out.println("Your answer: " + answer);
+            Engine.yourAnswer();
 
             if (isPrime) {
                 result = "yes";
@@ -41,23 +36,17 @@ public class Prime {
                 result = "no";
             }
 
-            if (isPrime && answer.equals("yes")) {
+            if (isPrime && Engine.getAnswer().equals("yes")) {
                 System.out.println("Correct!");
-                result = "yes";
-                count++;
-            } else if (!isPrime && answer.equals("no")) {
+            } else if (!isPrime && Engine.getAnswer().equals("no")) {
                 System.out.println("Correct!");
-                result = "no";
-                count++;
             } else {
-                System.out.println(answer + " is wrong answer ;(. Correct answer was " + result + ".");
-                System.out.println("Let's try again, " + getName + "!");
+                System.out.println(Engine.getAnswer() + " is wrong answer ;(. Correct answer was " + result + ".");
+                System.out.println("Let's try again, " + Greet.getName() + "!");
                 break;
             }
 
         }
-        if (count == numberOfQuestions) {
-            System.out.println("Congratulations, " + getName + "!");
-        }
+        Engine.congratulations();
     }
 }
