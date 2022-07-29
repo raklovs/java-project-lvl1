@@ -6,14 +6,13 @@ public class Calculator {
 
     public static void calculation() {
 
-        Greet.getGreet();
-        System.out.println("What is the result of the expression?");
         var result = 0;
         var operand = "";
         final int multiplier1 = 17;
         final int multiplier2 = 3;
+        int i;
 
-        for (int i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
+        for (i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
             var randomNumber1 = (int) (multiplier1 * Math.random());
             var randomNumber2 = (int) (multiplier1 * Math.random());
             var switchNumbers = (int) (multiplier2 * Math.random());
@@ -45,6 +44,8 @@ public class Calculator {
             }
 
         }
-        Engine.congratulations();
+        if (i == Engine.NUMBER_OF_QUESTION) {
+            Engine.congratulations();
+        }
     }
 }
