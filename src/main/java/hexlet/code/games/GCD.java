@@ -13,11 +13,10 @@ public class GCD {
 
     public static void findGreatestCommonDivisor() {
 
-        Greet.getGreet();
-        System.out.println("Find the greatest common divisor of given numbers.");
         final var multiplier = 100;
+        int i;
 
-        for (int i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
+        for (i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
             var randomNumber1 = (int) (multiplier * Math.random());
             var randomNumber2 = (int) (multiplier * Math.random());
             var answer = GCD.algorithmGreatestCommonDivisor(randomNumber1, randomNumber2);
@@ -34,6 +33,8 @@ public class GCD {
             }
 
         }
-        Engine.congratulations();
+        if (i == Engine.NUMBER_OF_QUESTION) {
+            Engine.congratulations();
+        }
     }
 }
