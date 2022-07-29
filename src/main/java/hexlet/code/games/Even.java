@@ -3,13 +3,13 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Even {
+
     public static void guessEvenOrOddNumber() {
 
-        Greet.getGreet();
-        System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
         final var multiplier = 17;
+        int i;
 
-        for (int i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
+        for (i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
             var randomNumber = (int) (multiplier * Math.random());
             System.out.println("Question: " + randomNumber);
             Engine.yourAnswer();
@@ -31,6 +31,9 @@ public class Even {
                 break;
             }
         }
-        Engine.congratulations();
+        if (i == Engine.NUMBER_OF_QUESTION) {
+            Engine.congratulations();
+        }
+
     }
 }
