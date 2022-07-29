@@ -8,13 +8,12 @@ public class Progression {
 
     public static void arithmeticProgressionNumbers() {
 
-        Greet.getGreet();
-        System.out.println("What number is missing in the progression?");
         final var multiplier1 = 10;
         final var multiplier2 = 5;
         final var multiplier3 = 9;
+        int i;
 
-        for (var i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
+        for (i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
             var beginNumber = (int) (multiplier1 * Math.random() - 1);
             var stepNumber = (int) (multiplier2 * Math.random() + 1);
             final var arrayLength = 10;
@@ -48,6 +47,8 @@ public class Progression {
             }
 
         }
-        Engine.congratulations();
+        if (i == Engine.NUMBER_OF_QUESTION) {
+            Engine.congratulations();
+        }
     }
 }
