@@ -18,12 +18,11 @@ public class Prime {
 
     public static void primeNumber() {
 
-        Greet.getGreet();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         final var multiplier = 10;
         String result;
+        int i;
 
-        for (var i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
+        for (i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
             int randomNumber = (int) (Math.random() * multiplier) + 1;
             System.out.println("Question: " + randomNumber);
 
@@ -47,6 +46,8 @@ public class Prime {
             }
 
         }
-        Engine.congratulations();
+        if (i == Engine.NUMBER_OF_QUESTION) {
+            Engine.congratulations();
+        }
     }
 }
