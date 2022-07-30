@@ -7,6 +7,8 @@ import hexlet.code.Engine;
 public class Progression {
 
     public static void arithmeticProgressionNumbers() {
+        String[][] response = new String[Engine.NUMBER_OF_QUESTION][2];
+        String question = "What number is missing in the progression?";
 
         final var multiplier1 = 10;
         final var multiplier2 = 5;
@@ -34,21 +36,9 @@ public class Progression {
                 }
             }
             String arraysNumbers = Arrays.toString(arrayOfString);
-            System.out.println("Question: " + arraysNumbers.replaceAll(",", "").replace("[", "").replace("]", ""));
-            Engine.yourAnswer();
-
-            if (String.valueOf(randomChoice).equals(Engine.getAnswer())) {
-                System.out.println("Correct!");
-            } else {
-                System.out.println(Engine.getAnswer() + " is wrong answer ;(.");
-                System.out.println("Correct answer was " + randomChoice + ".");
-                System.out.println("Let's try again, " + Greet.getName() + "!");
-                break;
-            }
-
+            response[i][0] = arraysNumbers.replaceAll(",", "").replace("[", "").replace("]", " ");
+            response[i][1] = Integer.toString(randomChoice);
         }
-        if (i == Engine.NUMBER_OF_QUESTION) {
-            Engine.congratulations();
-        }
+        Engine.gameManagement(question, response);
     }
 }
