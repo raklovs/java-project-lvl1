@@ -6,34 +6,16 @@ public class Even {
 
     public static void guessEvenOrOddNumber() {
 
+        String[][] response = new String[Engine.NUMBER_OF_QUESTION][2];
+        String question = "Answer 'yes' if number even otherwise answer 'no'.";
         final var multiplier = 17;
-        int i;
 
-        for (i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
+        for (int i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
             var randomNumber = (int) (multiplier * Math.random());
-            System.out.println("Question: " + randomNumber);
-            Engine.yourAnswer();
+            response[i][0] = Integer.toString(randomNumber);
+            response[i][1] = randomNumber % 2 == 0 ? "yes" : "no";
 
-            if (randomNumber % 2 == 0 && Engine.getAnswer().equals("yes")) {
-                System.out.println("Correct!");
-
-            } else if (randomNumber % 2 != 0 && Engine.getAnswer().equals("no")) {
-                System.out.println("Correct!");
-
-            } else if (randomNumber % 2 == 0 && !Engine.getAnswer().equals("no")) {
-                System.out.println("'" + Engine.getAnswer() + "'" + " is wrong answer ;(. Correct answer was 'yes'.");
-                System.out.println("Let's try again, " + Greet.getName() + "!");
-                break;
-
-            } else {
-                System.out.println("'" + Engine.getAnswer() + "'" + " is wrong answer ;(. Correct answer was 'no'.");
-                System.out.println("Let's try again, " + Greet.getName() + "!");
-                break;
-            }
         }
-        if (i == Engine.NUMBER_OF_QUESTION) {
-            Engine.congratulations();
-        }
-
+        Engine.gameManagement(question, response);
     }
 }
