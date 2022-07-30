@@ -23,33 +23,33 @@ public class Engine {
         System.out.println("0 - Exit");
         String choice = (words.nextLine());
         System.out.println("Your choice: " + choice);
-        Greet.getGreet();
+
 
         switch (choice) {
             case "0" -> System.out.println("Goodbye!");
             case "1" -> Greet.getGreet();
             case "2" -> {
-
+                Greet.getGreet();
                 System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
                 Even.guessEvenOrOddNumber();
             }
             case "3" -> {
-
+                Greet.getGreet();
                 System.out.println("What is the result of the expression?");
                 Calculator.calculation();
             }
             case "4" -> {
-
+                Greet.getGreet();
                 System.out.println("Find the greatest common divisor of given numbers.");
                 GCD.findGreatestCommonDivisor();
             }
             case "5" -> {
-
+                Greet.getGreet();
                 System.out.println("What number is missing in the progression?");
                 Progression.arithmeticProgressionNumbers();
             }
             case "6" -> {
-
+                Greet.getGreet();
                 System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
                 Prime.primeNumber();
             }
