@@ -6,13 +6,15 @@ public class Calculator {
 
     public static void calculation() {
 
+        String[][] response = new String[Engine.NUMBER_OF_QUESTION][2];
+        String question = "What is the result of the expression?";
+
         var result = 0;
         var operand = "";
         final int multiplier1 = 17;
         final int multiplier2 = 3;
-        int i;
 
-        for (i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
+        for (int i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
             var randomNumber1 = (int) (multiplier1 * Math.random());
             var randomNumber2 = (int) (multiplier1 * Math.random());
             var switchNumbers = (int) (multiplier2 * Math.random());
@@ -32,20 +34,9 @@ public class Calculator {
                 }
                 default -> System.out.println("Out of range");
             }
-            System.out.println("Question: " + randomNumber1 + " " + operand + " " + randomNumber2);
-            Engine.yourAnswer();
-
-            if (String.valueOf(result).equals(Engine.getAnswer())) {
-                System.out.println("Correct!");
-            } else {
-                System.out.println(Engine.getAnswer() + " is wrong answer ;(. Correct answer was " + result + ".");
-                System.out.println("Let's try again, " + Greet.getName() + "!");
-                break;
-            }
-
+            response[i][0] = randomNumber1 + " " + operand + " " + randomNumber2;
+            response[i][1] = Integer.toString(result);
         }
-        if (i == Engine.NUMBER_OF_QUESTION) {
-            Engine.congratulations();
-        }
+        Engine.gameManagement(question, response);
     }
 }
