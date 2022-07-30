@@ -17,5 +17,4 @@ public class Greet {
         name = words.nextLine();
         System.out.println("Hello, " + name + "!");
     }
-
 }
