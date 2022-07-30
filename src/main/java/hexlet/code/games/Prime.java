@@ -18,36 +18,16 @@ public class Prime {
 
     public static void primeNumber() {
 
+        String[][] response = new String[Engine.NUMBER_OF_QUESTION][2];
+        String question = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
         final var multiplier = 10;
-        String result;
-        int i;
 
-        for (i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
+        for (int i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
             int randomNumber = (int) (Math.random() * multiplier) + 1;
-            System.out.println("Question: " + randomNumber);
-
-            boolean isPrime = isPrime(randomNumber);
-            Engine.yourAnswer();
-
-            if (isPrime) {
-                result = "yes";
-            } else {
-                result = "no";
-            }
-
-            if (isPrime && Engine.getAnswer().equals("yes")) {
-                System.out.println("Correct!");
-            } else if (!isPrime && Engine.getAnswer().equals("no")) {
-                System.out.println("Correct!");
-            } else {
-                System.out.println(Engine.getAnswer() + " is wrong answer ;(. Correct answer was " + result + ".");
-                System.out.println("Let's try again, " + Greet.getName() + "!");
-                break;
-            }
-
+            response[i][0] = Integer.toString(randomNumber);
+            response[i][1] = isPrime(randomNumber) ? "yes" : "no";
         }
-        if (i == Engine.NUMBER_OF_QUESTION) {
-            Engine.congratulations();
-        }
+        Engine.gameManagement(question, response);
     }
 }
