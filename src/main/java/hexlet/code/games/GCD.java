@@ -12,29 +12,19 @@ public class GCD {
     }
 
     public static void findGreatestCommonDivisor() {
+        String[][] response = new String[Engine.NUMBER_OF_QUESTION][2];
+        String question = "Find the greatest common divisor of given numbers.";
 
         final var multiplier = 100;
-        int i;
 
-        for (i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
+        for (int i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
             var randomNumber1 = (int) (multiplier * Math.random());
             var randomNumber2 = (int) (multiplier * Math.random());
             var answer = GCD.algorithmGreatestCommonDivisor(randomNumber1, randomNumber2);
 
-            System.out.println("Question: " + randomNumber1 + " " + randomNumber2);
-            Engine.yourAnswer();
-
-            if (String.valueOf(answer).equals(Engine.getAnswer())) {
-                System.out.println("Correct!");
-            } else {
-                System.out.println(Engine.getAnswer() + " is wrong answer ;(. Correct answer was " + answer + ".");
-                System.out.println("Let's try again, " + Greet.getName() + "!");
-                break;
-            }
-
+            response[i][0] = randomNumber1 + " " + randomNumber2;
+            response[i][1] = Integer.toString(answer);
         }
-        if (i == Engine.NUMBER_OF_QUESTION) {
-            Engine.congratulations();
-        }
+        Engine.gameManagement(question, response);
     }
 }
