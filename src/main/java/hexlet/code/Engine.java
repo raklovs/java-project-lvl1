@@ -2,17 +2,20 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-import hexlet.code.games.Greet;
-
 public class Engine {
 
     public static final int NUMBER_OF_QUESTION = 3;
 
     public static void gameManagement(String question, String[][] response) {
-        Greet.getGreet();
+
+        Scanner words = new Scanner(System.in);
+        System.out.println("Welcome to the Brain Games!");
+        System.out.println("May I have your name?");
+        String name = words.nextLine();
+        System.out.println("Hello, " + name + "!");
         System.out.println(question);
-        int i;
-        for (i = 0; i < NUMBER_OF_QUESTION; i++) {
+
+        for (int i = 0; i < NUMBER_OF_QUESTION; i++) {
             System.out.println("Question: " + response[i][0]);
             System.out.print("Your answer: ");
             String text = yourAnswer();
@@ -21,14 +24,11 @@ public class Engine {
             } else {
                 System.out.println("'" + text + "'" + " is wrong answer ;(. Correct answer was '"
                         + response[i][1] + "'.");
-                System.out.println("Let's try again, " + Greet.getName() + "!");
+                System.out.println("Let's try again, " + name + "!");
                 return;
             }
         }
-        if (i == NUMBER_OF_QUESTION) {
-            System.out.println("Congratulations, " + Greet.getName() + "!");
-        }
-
+        System.out.println("Congratulations, " + name + "!");
     }
 
 
