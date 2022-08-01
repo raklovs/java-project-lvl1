@@ -4,15 +4,13 @@ import hexlet.code.Engine;
 
 public class Prime {
 
-    static final int MULTIPLIER = 10;
-
     public static void primeNumber() {
 
         String[][] response = new String[Engine.NUMBER_OF_QUESTION][2];
         String question = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
         for (int i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
-            int randomNumber = (int) (Math.random() * MULTIPLIER) + 1;
+            int randomNumber = Engine.getRandom(Engine.MAX_NUMBER) + 2;
             response[i][0] = Integer.toString(randomNumber);
             response[i][1] = isPrime(randomNumber) ? "yes" : "no";
         }
