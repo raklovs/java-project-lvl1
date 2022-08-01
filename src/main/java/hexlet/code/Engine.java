@@ -2,9 +2,12 @@ package hexlet.code;
 
 import java.util.Scanner;
 
+import java.util.Random;
+
 public class Engine {
 
     public static final int NUMBER_OF_QUESTION = 3;
+    public static final int MAX_NUMBER = 40;
 
     public static void gameManagement(String question, String[][] response) {
 
@@ -35,6 +38,11 @@ public class Engine {
     public static String yourAnswer() {
         Scanner words = new Scanner(System.in);
         return words.next();
+    }
+
+    public static int getRandom(int max) {
+        final Random random = new Random();
+        return random.nextInt(max);
     }
 
 }
