@@ -4,8 +4,7 @@ import hexlet.code.Engine;
 
 public class Calculator {
 
-    static final int MULTIPLIER_1 = 17;
-    static final int MULTIPLIER_2 = 3;
+    static final int NUMBER_OF_SIGNS = 3;
 
     public static void calculation() {
 
@@ -16,9 +15,9 @@ public class Calculator {
         var operand = "";
 
         for (int i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
-            var randomNumber1 = (int) (Calculator.MULTIPLIER_1 * Math.random());
-            var randomNumber2 = (int) (Calculator.MULTIPLIER_1 * Math.random());
-            var switchNumbers = (int) (Calculator.MULTIPLIER_2 * Math.random());
+            var randomNumber1 = Engine.getRandom(Engine.MAX_NUMBER);
+            var randomNumber2 = Engine.getRandom(Engine.MAX_NUMBER);
+            var switchNumbers = Engine.getRandom(NUMBER_OF_SIGNS);
 
             switch (switchNumbers) {
                 case 0 -> {
