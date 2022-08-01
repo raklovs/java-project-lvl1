@@ -4,6 +4,9 @@ import hexlet.code.Engine;
 
 public class Calculator {
 
+    static final int MULTIPLIER_1 = 17;
+    static final int MULTIPLIER_2 = 3;
+
     public static void calculation() {
 
         String[][] response = new String[Engine.NUMBER_OF_QUESTION][2];
@@ -11,13 +14,11 @@ public class Calculator {
 
         var result = 0;
         var operand = "";
-        final int multiplier1 = 17;
-        final int multiplier2 = 3;
 
         for (int i = 0; i < Engine.NUMBER_OF_QUESTION; i++) {
-            var randomNumber1 = (int) (multiplier1 * Math.random());
-            var randomNumber2 = (int) (multiplier1 * Math.random());
-            var switchNumbers = (int) (multiplier2 * Math.random());
+            var randomNumber1 = (int) (Calculator.MULTIPLIER_1 * Math.random());
+            var randomNumber2 = (int) (Calculator.MULTIPLIER_1 * Math.random());
+            var switchNumbers = (int) (Calculator.MULTIPLIER_2 * Math.random());
 
             switch (switchNumbers) {
                 case 0 -> {
